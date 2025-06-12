@@ -4,7 +4,7 @@ import { PageContext } from "../store/context";
 import { quizQuestions } from "../data/questions";
 
 export default function FinalPage() {
-  const { questionAnswer } = useContext(PageContext);
+  const { questionAnswer, name } = useContext(PageContext);
 
   const skipAnswer = questionAnswer.filter((itm) => itm === "");
   const rightAnswer = questionAnswer.filter(
@@ -23,9 +23,12 @@ export default function FinalPage() {
       <div className="bg-[#f0c663] w-[800px] my-16 rounded-lg flex flex-col items-center pb-14">
         <img src={trophyImg} className="mx-auto mt-11" width={120} />
         <div className="text-[#373737] mt-3 font-bold text-3xl">
-          QUIZ COMPLETED!
+          QUIZ COMPLETED
         </div>
-        <div className="flex mt-14 text-[#4b4b4b]">
+        <div className="mt-14 mb-8 text-2xl text-[#b06600] font-semibold">
+          Thank you for joining the quiz, {name}!
+        </div>
+        <div className="flex text-[#4b4b4b]">
           <div className="w-[180px] text-center">
             <div className="text-6xl">{handleResult(skipAnswer.length)}%</div>
             <div className="text-[15px]">SKIPPED</div>
